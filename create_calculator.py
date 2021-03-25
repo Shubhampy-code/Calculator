@@ -4,7 +4,7 @@ from math import sqrt
 
 window = Tk()
 window.title('calculator')
-window.iconbitmap('C:\\Users\\Shubham\\Desktop\\Learn_Python\\extra\\Cal_icon.ico')
+window.iconbitmap('C:\\Users\\Shubham\\Documents\\GitHub\\Calculator\\Cal_icon.ico')
 
 screen = Entry(window,bd=5,bg="#abbab1",justify= 'right',width = 45,borderwidth=7)
 screen.grid(row=0,column=0,columnspan=4)
