@@ -140,7 +140,7 @@ def get_last_num():
     while (length<Entry_len and screenContent[-i] != "+" and screenContent[-i] != "-" and screenContent[-i] != "*" and screenContent[-i] != "/" and screenContent[-i] != "%"   ):
         i=i-1
         length=length+1
-    temp = int(str(screenContent[i:Entry_len]))
+    temp = float(str(screenContent[i:Entry_len]))
     return temp
 
 def square():
