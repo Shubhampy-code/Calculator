@@ -43,7 +43,10 @@ def symbol(number):
     global expression
     expression = 0
     screenContent = screen.get()
-    if (screenContent[-1] == "+" or screenContent[-1] == "-" or screenContent[-1] == "*" or screenContent[-1] == "/" or screenContent[-1] == "%" or screenContent[-1] == "." ):
+    if (screenContent == "" or screenContent[-1] == "+" or screenContent[-1] == "-" or screenContent[-1] == "*" or screenContent[-1] == "/" or screenContent[-1] == "%" or screenContent[-1] == "." ):
+        if screenContent == "":
+            screen.insert(0,"")
+            return
         new_content = str(screenContent[0:-1]) + str(number)
         Entry_len = len(screen.get())
         screen.delete(0,Entry_len)
@@ -95,6 +98,10 @@ def Equal():
     global expression
     expression = 1
     screenContent = screen.get()
+    if screenContent == "":
+        screen.insert(0,"")
+        return
+
     if screenContent[-2] =="/" and screenContent[-1]=="0":
         screen.delete(0,END)
         screen.insert(0,"can't divide by zero")
@@ -140,12 +147,16 @@ def get_last_num():
     while (length<Entry_len and screenContent[-i] != "+" and screenContent[-i] != "-" and screenContent[-i] != "*" and screenContent[-i] != "/" and screenContent[-i] != "%"   ):
         i=i-1
         length=length+1
-    temp = float(str(screenContent[i:Entry_len]))
+    temp = int(str(screenContent[i:Entry_len]))
     return temp
 
 def square():
     global expression
     expression = 1
+    current = screen.get()
+    if current =="":
+        screen.insert(0,"")
+        return
     num = get_last_num()
     screenContent = screen.get()
     Entry_len = len(screenContent)
@@ -160,6 +171,10 @@ def square():
 def DivideByNumber():
     global expression 
     expression = 1
+    current = screen.get()
+    if current =="":
+        screen.insert(0,"")
+        return
     num = get_last_num()
     screenContent = screen.get()
     Entry_len = len(screenContent)
